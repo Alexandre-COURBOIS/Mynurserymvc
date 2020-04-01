@@ -3,8 +3,6 @@
 namespace App\Weblitzer;
 
 
-
-
 /**
  *
  */
@@ -81,14 +79,12 @@ class Controller
 
     protected function redirect($url,$args = array())
     {
-
         $view = new View();
         if(!empty($args)) {
             $realurl = $view->path($url,$args);
         } else {
             $realurl = $view->path($url);
         }
-
         header('Location: '.$realurl);
         die();
     }
