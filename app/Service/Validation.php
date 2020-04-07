@@ -101,7 +101,7 @@ class Validation
      * @return string
      */
 
-    public function isNumeric( $value)
+    public function isNumeric($value)
     {
         $error = '';
         if(is_numeric($value) === false)
