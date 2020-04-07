@@ -18,10 +18,10 @@ class ProfilController extends Controller
     public function edit(){
         $titre = "Editer votre profil";
         $message = "Seul ces éléments peuvent être modifiés";
-       /* $profil = ProfilModel::findById($_SESSION['login']['id'], 'id_responsablelegal');
-        if (empty($profil)){
+       $profil = ProfilModel::findById($_SESSION['login']['id'], 'idresponsable_legale');
+       if (empty($profil)){
             $this->Abort404();
-        }*/
+        }
         $errors = array();
         if (!empty($_POST['submitted'])){
             $post = $this->cleanXss($_POST);
@@ -32,17 +32,17 @@ class ProfilController extends Controller
             $errors['street'] = $valid->textValid($post['street'], 'un nom de rue', 4, 200);
             $errors['code-postal'] = $valid->textValid($post['code-postal'], 'un code postal', 5, 5);
             $errors['city'] = $valid->textValid($post['city'], 'une ville', 1, 70);
-            /*if ($valid->IsValid($errors)){
-                ProfilModel::edit($post['tel'], $post['num-rue'], $post['id-rue'], $post['street'], $post['code-postal'], $post['city'], $post['longitude'], $post['latitude'], $-SESSION['login']['id']);
-                //$this->redirect('index.php?page=fruits');
-            }*/
+            if ($valid->IsValid($errors)){
+                ProfilModel::edit($post['tel'], $post['num-rue'], $post['id-rue'], $post['street'], $post['code-postal'], $post['city'], $post['longitude'], $post['lattitude'], $_SESSION['login']['id']);
+                //$this->redirect('');
+            }
         }
         $form = new Form($errors);
         $this->render('app.default.editProfil', array(
             'titre' => $titre,
             'message' => $message,
             'form' => $form,
-            /*'profil' => $profil,*/
+            'profil' => $profil,
         ));
     }
 }

@@ -2,7 +2,6 @@
     <?= $titre; ?>
 </h1>
 <h2 style="text-align: center;font-size:20px;"><?= $message ?></h2>
-
 <div class="container">
     <form method="post" class="form-style">
         <div class="form-row">
@@ -15,7 +14,7 @@
                                    placeholder="Tel: 02 11 22 33 44"
                                    value="<?php if (!empty($_POST['tel'])) {
                                        echo $_POST['tel'];
-                                   } ?>">
+                                   } else { echo '0' . $profil[0]->Telephone;} ?>">
                             <span class="input-highlight"></span>
                             <?= $form->error('tel') ?>
                         </div>
@@ -28,7 +27,7 @@
                                    placeholder="N° de rue"
                                    value="<?php if (!empty($_POST['num-rue'])) {
                                        echo $_POST['num-rue'];
-                                   } ?>">
+                                   } else { echo $profil[0]->Num_rue;}?>">
 
                             <span class="input-highlight"></span>
                             <?= $form->error('num-rue') ?>
@@ -38,9 +37,9 @@
                         <div class="form-group">
                             <select name="id-rue" id="id-rue" class="form-control">
                                 <option value="NULL">Supplément de numéro</option>
-                                <option value="bis">Bis</option>
-                                <option value="ter">Ter</option>
-                                <option value="quater">Quater</option>
+                                <option value="bis" <?php if (($profil[0]->Supp_rue) == "bis") echo "selected";?>>Bis</option>
+                                <option value="ter" <?php if (($profil[0]->Supp_rue) == "ter") echo "selected";?>>Ter</option>
+                                <option value="quater" <?php if (($profil[0]->Supp_rue) == "quater") echo "selected";?>>Quater</option>
                             </select>
                             <span class="input-highlight"></span>
                         </div>
@@ -53,7 +52,7 @@
                                    placeholder="Nom de votre rue"
                                    value="<?php if (!empty($_POST['street'])) {
                                        echo $_POST['street'];
-                                   } ?>">
+                                   } else { echo $profil[0]->Nom_rue;} ?>">
 
                             <span class="input-highlight"></span>
                             <?= $form->error('street') ?>
@@ -68,7 +67,7 @@
                                    placeholder="Code postal"
                                    value="<?php if (!empty($_POST['code-postal'])) {
                                        echo $_POST['code-postal'];
-                                   } ?>">
+                                   } else { echo  $profil[0]->Codepostal;}?>">
                             <span class="input-highlight"></span>
                             <?= $form->error('code-postal') ?>
                         </div>
@@ -79,7 +78,7 @@
                                    placeholder="Nom de la ville"
                                    value="<?php if (!empty($_POST['city'])) {
                                        echo $_POST['city'];
-                                   } ?>">
+                                   } else { echo $profil[0]->Ville;}?>">
                             <span class="input-highlight"></span>
                             <?= $form->error('city') ?>
                         </div>

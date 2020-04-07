@@ -22,6 +22,8 @@ class ProfilModel extends Model
     protected $codepostal;
     protected $ville;
     protected $sexe;
+    protected $longitude;
+    protected $latitude;
     protected $created_at;
     protected $modified_at;
 
@@ -33,11 +35,11 @@ class ProfilModel extends Model
     public function setId($idresponsable_legale){
         $this->idresponsable_legale = $idresponsable_legale;
     }
-    public function getnom()
+    public function getNom()
     {
         return $this->nom;
     }
-    public function setnom($nom)
+    public function setNom($nom)
     {
         $this->nom = $nom;
     }
@@ -49,11 +51,11 @@ class ProfilModel extends Model
     {
         $this->prenom = $prenom;
     }
-    public function getbirthdate()
+    public function getBirthdate()
     {
         return $this->birthdate;
     }
-    public function setbirthdate($birthdate)
+    public function setBirthdate($birthdate)
     {
         $this->birthdate = $birthdate;
     }
@@ -65,39 +67,39 @@ class ProfilModel extends Model
     {
         $this->email = $email;
     }
-    public function gettelephone()
+    public function getTelephone()
     {
         return $this->telephone;
     }
-    public function settelephone($telephone)
+    public function setTelephone($telephone)
     {
         $this->telephone = $telephone;
     }
-    public function getNumRue()
+    public function getNum_rue()
     {
         return $this->num_rue;
     }
-    public function setNumRue($num_rue)
+    public function setNum_rue($num_rue)
     {
         $this->num_rue = $num_rue;
     }
-    public function getSuppRue()
+    public function getSupp_rue()
     {
         return $this->supp_rue;
     }
-    public function setSuppRue($supp_rue)
+    public function setSupp_rue($supp_rue)
     {
         $this->supp_rue = $supp_rue;
     }
-    public function getnomRue()
+    public function getNom_rue()
     {
         return $this->nom_rue;
     }
-    public function setnomRue($nom_rue)
+    public function setNom_rue($nom_rue)
     {
         $this->nom_rue = $nom_rue;
     }
-    public function getcodepostal()
+    public function getCodepostal()
     {
         return $this->codepostal;
     }
@@ -121,11 +123,27 @@ class ProfilModel extends Model
     {
         $this->sexe = $sexe;
     }
-    public function getcreated_at()
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+    }
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+    }
+    public function getCreated_at()
     {
         return $this->created_at;
     }
-    public function setcreated_at($created_at)
+    public function setCreated_at($created_at)
     {
         $this->created_at = $created_at;
     }
@@ -133,9 +151,13 @@ class ProfilModel extends Model
     {
         return $this->modified_at;
     }
-    public function setmodified_at($mofidiedAt)
+    public function setModified_at($mofidiedAt)
     {
         $this->modified_at = $mofidiedAt;
     }
 
+    public static function edit($tel, $numRue, $supp_rue, $street, $codePostal, $ville, $longitude, $latitude, $id){
+        $sql = "UPDATE " . self::getTable() . " SET telephone = ?, num_rue = ?, supp_rue = ?, nom_rue = ?, codepostal = ?, ville = ?, longitude = ?, latitude = ?, modified_at = NOW() WHERE idresponsable_legale = ?";
+        return App::getDatabase()->prepareInsert($sql, [$tel, $numRue, $supp_rue, $street, $codePostal, $ville, $longitude, $latitude, $id]);
+    }
 }
