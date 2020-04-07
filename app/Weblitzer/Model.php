@@ -28,7 +28,7 @@ class Model
 
     public static function findById($id,$columId = 'id')
     {
-        return App::getDatabase()->prepare("SELECT * FROM " . self::getTable() . " WHERE ".$columId." = ?",[$id],get_called_class(),true);
+        return App::getDatabase()->prepare("SELECT * FROM " . self::getTable() . " WHERE ".$columId." = ?",[$id],get_called_class());
     }
 
     public static function findByColumn($column,$value)
