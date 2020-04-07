@@ -114,5 +114,4 @@ class Form
         $html .= '</select>';
         return $html;
     }
-
 }
