@@ -1,7 +1,7 @@
-<h1 style="text-align: center;font-size:33px;margin-top: 100px;">
+<h1 id="titre">
     <?= $titre; ?>
 </h1>
-<h2 style="text-align: center;font-size:20px;"><?= $message ?></h2>
+<h2 id="sousTitre"><?= $message ?></h2>
 <div class="container">
     <form method="post" class="form-style">
         <div class="form-row">

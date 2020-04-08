@@ -46,7 +46,7 @@ class ProfilController extends Controller
 
         }
         $form = new Form($errors);
-        $this->render('app.default.editProfil', array(
+        $this->render('app.default.profil.editProfil', array(
             'titre' => $titre,
             'message' => $message,
             'form' => $form,
