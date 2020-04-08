@@ -22,7 +22,7 @@ class DefaultController extends Controller
         if (empty($profils)) {
             $this->Abort404();
         }
-        $this->render('app.default.profil', array(
+        $this->render('app.default.profil.profil', array(
             'titre' => $titre,
             'msg' => $msg,
             'profils' => $profils,

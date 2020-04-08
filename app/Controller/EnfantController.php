@@ -31,7 +31,7 @@ class EnfantController extends Controller
             }
         }
         $form = new Form($errors);
-        $this->render('app.default.ajoutEnfant',array(
+        $this->render('app.default.enfant.ajoutEnfant',array(
             'titre' => $titre,
             'form' => $form,
         ));
@@ -56,7 +56,7 @@ class EnfantController extends Controller
             }
         }
         $form = new Form($errors);
-        $this->render('app.default.editEnfant', array(
+        $this->render('app.default.enfant.editEnfant', array(
             'enfant' => $enfant,
             'form' => $form,
         ));
