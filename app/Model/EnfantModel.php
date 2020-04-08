@@ -89,4 +89,9 @@ class EnfantModel extends Model
         return App::getDatabase()->prepareInsert($sql,[$id_responsablelegal, $nom, $prenom, $birthdate, $sexe, $id_responsablelegal]);
     }
 
+    public static function edit($sexe, $nom, $prenom, $birthdate, $id){
+        $sql = "UPDATE " . self::getTable() . " SET nom = ?, prenom = ?, birthdate = ?, sexe = ?, modified_at = NOW() WHERE id_enfant = ?";
+        return App::getDatabase()->prepareInsert($sql, [$sexe, $nom, $prenom, $birthdate, $id]);
+    }
+
 }
