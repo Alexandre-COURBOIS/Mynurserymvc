@@ -60,6 +60,13 @@ class EnfantController extends Controller
             'enfant' => $enfant,
             'form' => $form,
         ));
-
+    }
+    public function deleteEnfant($id){
+        $enfant = EnfantModel::findById($id, 'id_enfant');
+        if (empty($enfant)){
+            $this->Abort404();
+        }
+        EnfantModel::delete($id);
+        $this->redirect('');
     }
 }

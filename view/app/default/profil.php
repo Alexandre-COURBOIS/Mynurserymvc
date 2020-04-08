@@ -29,7 +29,7 @@
                 } elseif ($enfant->sexe == 'non-genré') {
                     $bgColor = 'rgba(244, 241, 187, 0.8)';
                 }
-                $html .= '<li style="margin-bottom: 20px; border-radius: 5px; width: 50%; margin-left: 25%; background-color: ' . $bgColor . ';">' . $enfant->nom . ' ' . $enfant->prenom . '<ul><li>' . $enfant->sexe . '</li><li>Date de naissance : ' . $enfant->birthdate . '</li></ul><a style="background-color: #e6ebe0; border-radius: 20px; padding: 0 10px;" href="' . $view->path('editEnfant',array($enfant->id_enfant) ) . '">Editer le profil</a></li>';
+                $html .= '<li style="margin-bottom: 20px; border-radius: 5px; width: 50%; margin-left: 25%; background-color: ' . $bgColor . ';">' . $enfant->nom . ' ' . $enfant->prenom . '<ul><li>' . $enfant->sexe . '</li><li>Date de naissance : ' . $enfant->birthdate . '</li></ul><a style="background-color: #e6ebe0; border-radius: 20px; padding: 0 10px;" href="' . $view->path('editEnfant',array($enfant->id_enfant) ) . '">Editer le profil</a><br><a style="background-color: #e6ebe0; border-radius: 20px; padding: 0 10px;" href="' . $view->path('deleteEnfant',array($enfant->id_enfant)) . '">Supprimer le profil</a></li>';
             }
             $html .= '</ul>';
             echo $html;
