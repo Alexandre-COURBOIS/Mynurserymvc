@@ -53,4 +53,13 @@ class ProfilController extends Controller
             'profil' => $profil,
         ));
     }
+
+    public function deconnexion() {
+
+        $_SESSION = array();
+
+        session_destroy();
+
+        header('Location: /mynursery/');
+    }
 }

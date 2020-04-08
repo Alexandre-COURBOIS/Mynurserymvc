@@ -132,7 +132,7 @@
                     <?php if (empty($_SESSION)) { ?>
                         <a href="connexion" class="btn btn-outline-dark btn-sm mx-auto" role="button">Connexion</a>
                     <?php } else { ?>
-                        <a href="" class="btn btn-outline-dark btn-sm mx-auto" role="button">Deconnexion</a>
+                        <a href="<?= $view->path('deconnexion'); ?>" class="btn btn-outline-dark btn-sm mx-auto" role="button">Deconnexion</a>
                     <?php } ?>
                 </div>
 
