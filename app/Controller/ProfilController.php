@@ -34,8 +34,16 @@ class ProfilController extends Controller
             $errors['city'] = $valid->textValid($post['city'], 'une ville', 1, 70);
             if ($valid->IsValid($errors)){
                 ProfilModel::edit($post['tel'], $post['num-rue'], $post['id-rue'], $post['street'], $post['code-postal'], $post['city'], $post['longitude'], $post['lattitude'], $_SESSION['login']['id']);
-                //$this->redirect('');
+                $_SESSION['login']['telephone']=$post['tel'];
+                $_SESSION['login']['num_rue']=$post['num-rue'];
+                $_SESSION['login']['supp_rue']=$post['id-rue'];
+                $_SESSION['login']['nom_rue']=$post['street'];
+                $_SESSION['login']['codepostal']=$post['code-postal'];
+                $_SESSION['login']['ville']=$post['city'];
+                $_SESSION['login']['update']= 'modified';
+                $this->redirect('');
             }
+
         }
         $form = new Form($errors);
         $this->render('app.default.editProfil', array(
