@@ -9,6 +9,9 @@ $routes = array(
     array('reservation','reservation','reservation'),
     array('editEnfant','enfant','editEnfant', array('id')),
     array('deleteEnfant','enfant','deleteEnfant', array('id')),
+
+    array('map_request','map','mapRequest'),
+
 );
 
 

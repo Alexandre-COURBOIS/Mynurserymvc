@@ -31,7 +31,7 @@ class CrecheModel
     protected $created_at;
     protected $modified_at;
 
-    public function getAllCreche()
+    public static function getAllCreche()
     {
         Model::all();
     }

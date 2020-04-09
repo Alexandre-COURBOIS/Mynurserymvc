@@ -3,6 +3,7 @@
 
 namespace App\Controller;
 
+use App\Model\CrecheModel;
 
 class MapController extends Controller
 {
@@ -12,8 +13,8 @@ class MapController extends Controller
 
     }
 
-    public function MapRequest()
+    public function mapRequest()
     {
-
+        CrecheModel::getAllCreche();
     }
 }
