@@ -18,27 +18,30 @@
             </br><a href="<?= $view->path('editProfil'); ?>">Editer le profil</a>
         </div>
         <div class="col" style="text-align: center">
-            <h2 id="sousTitre"><?= $titreEnfant ?></h2>
-            <?php
-            $html = '<ul>';
-            foreach ($enfants as $enfant) {
-                if ($enfant->sexe == 'garçon') {
-                    $bgColor = 'rgba(155, 193, 188, 0.8)';
-                } elseif ($enfant->sexe == 'non-genré') {
-                    $bgColor = 'rgba(237, 106, 90, 0.5)';
-                } elseif ($enfant->sexe == 'fille') {
-                    $bgColor = 'rgba(244, 241, 187, 0.8)';
-                }
-                $html .= '<li id="affEnfant" style="background-color: ' . $bgColor . ';">' . $enfant->nom . ' ' . $enfant->prenom . '
+            <a id="btnAjoutEnfant" href="<?=$view->path('ajoutEnfant')?>">Ajouter un enfant</a>
+            <?php if (!empty($enfants)) { ?>
+                <h2 id="sousTitre"><?= $titreEnfant ?></h2>
+                <?php
+                $html = '<ul>';
+                foreach ($enfants as $enfant) {
+                    if ($enfant->sexe == 'garçon') {
+                        $bgColor = 'rgba(155, 193, 188, 0.8)';
+                    } elseif ($enfant->sexe == 'non-genré') {
+                        $bgColor = 'rgba(237, 106, 90, 0.5)';
+                    } elseif ($enfant->sexe == 'fille') {
+                        $bgColor = 'rgba(244, 241, 187, 0.8)';
+                    }
+                    $html .= '<li id="affEnfant" style="background-color: ' . $bgColor . ';">' . $enfant->nom . ' ' . $enfant->prenom . '
                 <ul>
                 <li>' . $enfant->sexe . '</li>
                 <li>Date de naissance : ' . $enfant->birthdate . '</li>
                 </ul>
                 <a id="btnEnfant" href="' . $view->path('editEnfant', array($enfant->id_enfant)) . '">Editer le profil</a>
                 <br><a id="btnEnfant" href="' . $view->path('deleteEnfant', array($enfant->id_enfant)) . '">Supprimer le profil</a></li>';
+                }
+                $html .= '</ul>';
+                echo $html;
             }
-            $html .= '</ul>';
-            echo $html;
             ?>
         </div>
     </div>
