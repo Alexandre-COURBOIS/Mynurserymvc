@@ -10,19 +10,17 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo:400,700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css" rel="stylesheet">
-
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet'/>
     <link rel="stylesheet"
           href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css"
           type="text/css"/>
     <link href="https://api.mapbox.com/mapbox-assembly/v0.23.2/assembly.min.css" rel="stylesheet"/>
-
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/gijgo@1.9.13/js/messages/messages.fr-fr.js" type="text/javascript"></script>
@@ -58,6 +56,11 @@
                             <a class="dropdown-item" href="#"></a>
                         </div>
                     </li>
+                    <?php if (!empty($_SESSION)) { ?>
+                        <li>
+                            <a href="<?= $view->path('ajoutEnfant'); ?>" class="nav-link">Vos enfants</a>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
@@ -70,12 +73,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Project</a>
                     </li>
-                    <?php if (!empty($_SESSION)) { ?>
-                        <li>
-                            <a href="<?= $view->path('ajoutEnfant'); ?>" class="nav-link">Vos enfants</a>
-                        </li>
-                    <?php } ?>
                 </ul>
+
                 <?php if (empty($_SESSION)){?>
                     <div class="btn-toolbar">
                         <!-- Button for Modal -->
@@ -130,7 +129,7 @@
 
                 <div class="btn-toolbar">
                     <?php if (empty($_SESSION)) { ?>
-                        <a href="connexion" class="btn btn-outline-dark btn-sm mx-auto" role="button">Connexion</a>
+                        <a href="/mynursery" class="btn btn-outline-dark btn-sm mx-auto" role="button">Connexion</a>
                     <?php } else { ?>
                         <a href="<?= $view->path('deconnexion'); ?>" class="btn btn-outline-dark btn-sm mx-auto" role="button">Deconnexion</a>
                     <?php } ?>
@@ -226,13 +225,11 @@
 </footer>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.18.1"></script>
-
 <script src="<?= $view->asset('js/searchadress.js'); ?>"></script>
-
 <script src="<?= $view->asset('js/main.js'); ?>"></script>
 
 

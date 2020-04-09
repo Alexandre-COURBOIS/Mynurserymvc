@@ -56,7 +56,7 @@ $(document).ready(function () {
 $.ajax({
 
     // Adresse à laquelle la requête est envoyée
-    url: '../request',
+    url: '/mynurserymvc/public/map_request',
     type: 'GET',
     // La fonction à apeller si la requête aboutie
 
@@ -128,7 +128,7 @@ $.ajax({
     },
 // La fonction à appeler si la requête n'a pas abouti
     error: function () {
-        // J'affiche un message d'erreur
+        console.log('rip');
 
     }
 
