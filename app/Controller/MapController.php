@@ -3,7 +3,9 @@
 
 namespace App\Controller;
 
+use App\Weblitzer\Controller;
 use App\Model\CrecheModel;
+use App\Weblitzer\Model;
 
 class MapController extends Controller
 {
@@ -15,6 +17,8 @@ class MapController extends Controller
 
     public function mapRequest()
     {
-        CrecheModel::getAllCreche();
+        $creche = CrecheModel::All();
+        return $creche;
     }
+
 }

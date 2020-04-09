@@ -6,7 +6,7 @@ namespace App\Model;
 use App\Weblitzer\Model;
 use App\App;
 
-class CrecheModel
+class CrecheModel extends Model
 {
     protected static $table = 'nurs_creche';
     protected $id_creche;
@@ -31,10 +31,6 @@ class CrecheModel
     protected $created_at;
     protected $modified_at;
 
-    public static function getAllCreche()
-    {
-        Model::all();
-    }
 
     /**
      * @return mixed
