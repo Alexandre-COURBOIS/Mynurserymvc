@@ -63,7 +63,7 @@ $.ajax({
     success: function (creches) {
         var users = jQuery.parseJSON(creches);
         console.log(users);
-
+        console.log(users[4]);
         map.on('load', function () {
             var geojson = {
                 type: 'FeatureCollection',
@@ -88,8 +88,8 @@ $.ajax({
                         coordinates: [users[i]['longitude'], users[i]['latitude']]
                     },
                     properties: {
-                        title: users[i]['nom_creche'],
-                        description: '<p>Téléphone : 0' + users[i]['telephone_creche']+ '</p>' + '<p>Mail : ' + users[i]['email'] + '</p>' + '<p>' + users[i]['num_rue'] + ' ' + users[i]['nom_rue'] + '</p>' + '<p>' + users[i]['codepostal'] + ' ' + users[i]['ville'] + '</p>'
+                        title: [users[i]['nomcreche']],
+                        description: '<p>Téléphone : ' + [users[i]['telephone']] + '</p>' + '<p>Mail : ' + users[i]['mail'] + '</p>' + '<p>' + users[i]['adresse'] + '</p>'
                     }
                 });
             }
@@ -128,7 +128,6 @@ $.ajax({
     },
 // La fonction à appeler si la requête n'a pas abouti
     error: function () {
-        console.log('rip');
 
     }
 

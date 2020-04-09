@@ -35,7 +35,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getIdCreche()
+    public function getId_Creche()
     {
         return $this->id_creche;
     }
@@ -51,7 +51,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getNomCreche()
+    public function getNom_Creche()
     {
         return $this->nom_creche;
     }
@@ -67,7 +67,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getNomGerant()
+    public function getNom_Gerant()
     {
         return $this->nom_gerant;
     }
@@ -83,7 +83,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getPrenomGerant()
+    public function getPrenom_Gerant()
     {
         return $this->prenom_gerant;
     }
@@ -99,7 +99,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getEmail()
+    public function get_Email()
     {
         return $this->email;
     }
@@ -115,7 +115,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getTelephoneCreche()
+    public function getTelephone_Creche()
     {
         return $this->telephone_creche;
     }
@@ -131,7 +131,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getNumRue()
+    public function getNum_Rue()
     {
         return $this->num_rue;
     }
@@ -147,7 +147,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getSuppRue()
+    public function getSupp_Rue()
     {
         return $this->supp_rue;
     }
@@ -163,7 +163,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getNomRue()
+    public function getNom_Rue()
     {
         return $this->nom_rue;
     }
@@ -179,7 +179,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getCodepostal()
+    public function getCode_postal()
     {
         return $this->codepostal;
     }
@@ -195,7 +195,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getVille()
+    public function get_Ville()
     {
         return $this->ville;
     }
@@ -211,7 +211,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getNumSiret()
+    public function getNum_Siret()
     {
         return $this->num_siret;
     }
@@ -227,7 +227,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getNumAgrement()
+    public function getNum_Agrement()
     {
         return $this->num_agrement;
     }
@@ -243,7 +243,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getNumSecusocial()
+    public function getNum_Secusocial()
     {
         return $this->num_secusocial;
     }
@@ -259,7 +259,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getEffectifMaxenfant()
+    public function getEffectif_Maxenfant()
     {
         return $this->effectif_maxenfant;
     }
@@ -275,7 +275,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getLongitude()
+    public function get_Longitude()
     {
         return $this->longitude;
     }
@@ -291,7 +291,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getLatitude()
+    public function get_Latitude()
     {
         return $this->latitude;
     }
@@ -307,7 +307,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getPassword()
+    public function get_Password()
     {
         return $this->password;
     }
@@ -323,7 +323,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getToken()
+    public function get_Token()
     {
         return $this->token;
     }
@@ -339,7 +339,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getCreatedAt()
+    public function get_CreatedAt()
     {
         return $this->created_at;
     }
@@ -355,7 +355,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getModifiedAt()
+    public function get_ModifiedAt()
     {
         return $this->modified_at;
     }
