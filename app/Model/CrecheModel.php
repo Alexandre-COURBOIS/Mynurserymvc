@@ -51,7 +51,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getNomCreche()
+    public function getNom_Creche()
     {
         return $this->nom_creche;
     }
