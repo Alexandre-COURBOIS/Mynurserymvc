@@ -22,7 +22,7 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
     <script src="https://unpkg.com/gijgo@1.9.13/js/messages/messages.fr-fr.js" type="text/javascript"></script>
 </head>
 <body>
@@ -42,40 +42,38 @@
 
             <div class="collapse navbar-collapse text-center" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Home
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#"></a>
-                            <a class="dropdown-item" href="#"></a>
-                            <a class="dropdown-item" href="#"></a>
-                            <a class="dropdown-item" href="#"></a>
-                            <a class="dropdown-item" href="#"></a>
-                            <a class="dropdown-item" href="#"></a>
-                        </div>
-                    </li>
-                    <?php if (!empty($_SESSION)) { ?>
-                        <li>
-                            <a href="<?= $view->path('ajoutEnfant'); ?>" class="nav-link">Vos enfants</a>
-                        </li>
-                    <?php } ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="/mynursery">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
-                    </li>
+                    <?php if (!empty($_SESSION)) {
+                        if ($_SESSION['login']['user'] == 'particulier') { ?>
+                            <li>
+                                <a href="<?= $view->path('home'); ?>" class="nav-link">Profil</a>
+                            </li>
+                            <li>
+                                <a href="<?= $view->path('ajoutEnfant'); ?>" class="nav-link">Vos enfants</a>
+                            </li>
+                            <li>
+                                <a href="<?= $view->path('map'); ?>" class="nav-link">Map</a>
+                            </li>
+                        <?php } elseif ($_SESSION['login']['user'] == 'pro') { ?>
+                            <li class="nav-item">
+                                <a id="loaderProfil" class="nav-link" href="http://localhost/mynursery/profil/">Profil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://localhost/mynursery/map">Map</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://localhost/mynursery/agenda">Réservations</a>
+                            </li>
+                        <?php }
+                    } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="#">contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Project</a>
-                    </li>
                 </ul>
 
-                <?php if (empty($_SESSION)){?>
+                <?php if (empty($_SESSION)) { ?>
                     <div class="btn-toolbar">
                         <!-- Button for Modal -->
                         <button type="button" class="btn btn-outline-dark btn-sm mx-auto" data-toggle="modal"
@@ -117,7 +115,8 @@
                                             </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer
+                                        </button>
                                     </div>
                                     </form>
                                 </div>
@@ -131,7 +130,8 @@
                     <?php if (empty($_SESSION)) { ?>
                         <a href="/mynursery" class="btn btn-outline-dark btn-sm mx-auto" role="button">Connexion</a>
                     <?php } else { ?>
-                        <a href="<?= $view->path('deconnexion'); ?>" class="btn btn-outline-dark btn-sm mx-auto" role="button">Deconnexion</a>
+                        <a href="<?= $view->path('deconnexion'); ?>" class="btn btn-outline-dark btn-sm mx-auto"
+                           role="button">Deconnexion</a>
                     <?php } ?>
                 </div>
 
@@ -140,7 +140,7 @@
     </div>
 </header>
 
-<div class="container">
+<div class="content">
     <?= $content; ?>
 </div>
 
@@ -202,10 +202,14 @@
                     <div>
                         <h4>Social</h4>
                         <ul id="logo-social">
-                            <li><a href="#"><img src="<?= $view->asset('img/facebook.png'); ?>" alt="logoFacebook" id="logo-social"/></a></li>
-                            <li><a href="#"><img src="<?= $view->asset('img/instagram-sketched.png'); ?>" alt="logoInstagram" id="logo-social"/></a></li>
-                            <li><a href="#"><img src="<?= $view->asset('img/linkedin.png'); ?>" alt="logoLinkedin" id="logo-social"/></a></li>
-                            <li><a href="#"><img src="<?= $view->asset('img/twitter.png'); ?>" alt="LogoTwitter" id="logo-social"/></a></li>
+                            <li><a href="#"><img src="<?= $view->asset('img/facebook.png'); ?>" alt="logoFacebook"
+                                                 id="logo-social"/></a></li>
+                            <li><a href="#"><img src="<?= $view->asset('img/instagram-sketched.png'); ?>"
+                                                 alt="logoInstagram" id="logo-social"/></a></li>
+                            <li><a href="#"><img src="<?= $view->asset('img/linkedin.png'); ?>" alt="logoLinkedin"
+                                                 id="logo-social"/></a></li>
+                            <li><a href="#"><img src="<?= $view->asset('img/twitter.png'); ?>" alt="LogoTwitter"
+                                                 id="logo-social"/></a></li>
                         </ul>
                     </div>
                 </div>
@@ -223,8 +227,6 @@
         </div>
     </div>
 </footer>
-</div>
-
 
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
