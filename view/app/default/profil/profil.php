@@ -36,8 +36,8 @@
                 <li>' . $enfant->sexe . '</li>
                 <li>Date de naissance : ' . $enfant->birthdate . '</li>
                 </ul>
-                <a id="btnEnfant" href="' . $view->path('editEnfant', array($enfant->id_enfant)) . '">Editer le profil</a>
-                <br><a id="btnEnfant" href="' . $view->path('deleteEnfant', array($enfant->id_enfant)) . '">Supprimer le profil</a></li>';
+                 <a id="btnEnfant" href="' . $view->path('descrEnfant', array($enfant->id_enfant)) . '">Voir Plus</a>
+                </li>';
                 }
                 $html .= '</ul>';
                 echo $html;

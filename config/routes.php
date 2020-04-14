@@ -8,6 +8,7 @@ $routes = array(
     array('editEnfant','enfant','editEnfant', array('id')),
     array('deleteEnfant','enfant','deleteEnfant', array('id')),
     array('ajoutResponsable','autreResponsableLegal','ajout'),
+    array('descrEnfant','autreResponsableLegal','descr_Enfant', array('id')),
 );
 
 

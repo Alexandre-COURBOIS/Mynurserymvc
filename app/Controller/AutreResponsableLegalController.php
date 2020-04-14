@@ -12,6 +12,16 @@ use App\Service\Validation;
 
 class AutreResponsableLegalController extends Controller
 {
+    public function descr_Enfant ($id){
+        $enfant = EnfantModel::findById($id, 'id_enfant');
+        $autreResp = AutreResponsableLegalModel::findById($id, 'id_enfant');
+
+        $this->render('app.default.autreResponsable.descrEnfant', array(
+            'enfant' => $enfant,
+            'autreResp' => $autreResp,
+        ));
+    }
+
     public function ajout()
     {
         $errors = array();
