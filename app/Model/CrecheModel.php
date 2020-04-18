@@ -35,7 +35,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getIdCreche()
+    public function getId_Creche()
     {
         return $this->id_creche;
     }
@@ -67,7 +67,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getNomGerant()
+    public function getNom_Gerant()
     {
         return $this->nom_gerant;
     }
@@ -83,7 +83,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getPrenomGerant()
+    public function getPrenom_Gerant()
     {
         return $this->prenom_gerant;
     }
@@ -115,7 +115,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getTelephoneCreche()
+    public function getTelephone()
     {
         return $this->telephone_creche;
     }
@@ -131,7 +131,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getNumRue()
+    public function getNum_Rue()
     {
         return $this->num_rue;
     }
@@ -163,7 +163,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getNomRue()
+    public function getNom_Rue()
     {
         return $this->nom_rue;
     }
