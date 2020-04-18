@@ -112,10 +112,10 @@ class ReservationModel extends Model
     }
 
 
-    public static function insert($id_reservation, $date_resa, $fin_resa)
+    public static function insert($id_creche,$id_enfant,$date_resa,$fin_resa,$id_creche2,$id_enfant2)
     {
-        $sql = "INSERT INTO " . self::getTable() . " VALUES (NULL, )";
-        return App::getDatabase()->prepareInsert($sql, [$id_reservation, $date_resa, $fin_resa]);
+        $sql = "INSERT INTO " . self::getTable() . " VALUES (NULL, ?, ?, ?, ?, ?, ?, NOW(), NULL)";
+        return App::getDatabase()->prepareInsert($sql, [$id_creche,$id_enfant, $date_resa, $fin_resa,$id_creche2,$id_enfant2]);
     }
 
 }

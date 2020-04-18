@@ -36,7 +36,6 @@
         <div class="col-md-5 mx-auto mt-5">
             <input type="submit" name="submitted" class="btn btn-lg btn-success btn-block">
         </div>
-        <?php print_r($_POST['fin_resa']) ?>
     </form>
 
     <script>
@@ -46,7 +45,7 @@
             showOtherMonths: true,
             calendarWeeks: true,
             format: 'yyyy-mm-dd H:MM',
-            value: '2020-04-04 14:30:00',
+            value: '2020-00-00 09:00',
             uiLibrary: 'bootstrap4',
             locale: 'fr-fr',
         });
@@ -55,8 +54,8 @@
             modal: true,
             showOtherMonths: true,
             calendarWeeks: true,
-            format: 'dd mmmm yyyy H:MM',
-            value: '18 avril 2020 18:30',
+            format: 'yyyy-mm-dd H:MM',
+            value: '2020-00-00 18:00',
             uiLibrary: 'bootstrap4',
             locale: 'fr-fr',
         });

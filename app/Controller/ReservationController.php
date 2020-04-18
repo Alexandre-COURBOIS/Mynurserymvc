@@ -18,16 +18,22 @@ class ReservationController extends Controller
 
         $errors = array();
         if (!empty($_POST['submitted'])){
+
+            $creche = $_GET['id'];
+
             $post = $this->cleanXss($_POST);
-            $debut = $_POST['debut_resa'];
-            $fin = $_POST['fin_resa'];
-            $select_enfant = $_POST['enfant_resa'];
+
+            $debut = $post['debut_resa'];
+            $fin = $post['fin_resa'];
+            $id_enfant = $post['enfant_resa'];
+
+
             $valid = new Validation();
 
             if ($valid->IsValid($errors)){
-                print_r($_POST);
 
-               /* $this->redirect('');*/
+                ReservationModel::insert($creche,$id_enfant,$debut,$fin,$creche,$id_enfant);
+                $this->redirect('');
             }
         }
         $form = new Form($errors);
