@@ -12,6 +12,7 @@ class ReservationModel extends Model
     protected static $table = 'nurs_reservation';
     protected $id_reservation;
     protected $id_creche;
+    protected $id_responsable;
     protected $id_enfant;
     protected $date_resa;
     protected $fin_resa;
@@ -39,6 +40,16 @@ class ReservationModel extends Model
     public function setId_creche($id_creche)
     {
         $this->id_creche = $id_creche;
+    }
+
+    public function getId_Responsable()
+    {
+        return $this->id_responsable;
+    }
+
+    public function setId_Responsable($id_responsable)
+    {
+        $this->id_responsable = $id_responsable;
     }
 
     public function getId_enfant()
@@ -112,10 +123,10 @@ class ReservationModel extends Model
     }
 
 
-    public static function insert($id_reservation, $date_resa, $fin_resa)
+    public static function insert($id_creche,$id_enfant,$id_responsable,$date_resa,$fin_resa,$id_creche2,$id_enfant2)
     {
-        $sql = "INSERT INTO " . self::getTable() . " VALUES (NULL, )";
-        return App::getDatabase()->prepareInsert($sql, [$id_reservation, $date_resa, $fin_resa]);
+        $sql = "INSERT INTO " . self::getTable() . " VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, NOW(), NULL)";
+        return App::getDatabase()->prepareInsert($sql, [$id_creche,$id_enfant,$id_responsable, $date_resa, $fin_resa,$id_creche2,$id_enfant2]);
     }
 
 }

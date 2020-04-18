@@ -1,6 +1,7 @@
+<div class="separator"></div>
 <div class="container">
     <h2 class="text-center pt-4"><?= $titre; ?></h2>
-
+    <div class="separator"></div>
     <form action="" method="post" class="form-style">
         <div class="form-row">
 
@@ -23,22 +24,21 @@
                 <div class="form-group">
                     <select name="enfant_resa" id="enfant_resa" class="form-control">
                         <option value="">--Liste de vos enfants--</option>
-                    <?php foreach ($enfants as $enfant){ ?>
-                        <option value="<?= $enfant->id_enfant ?>"><?php echo $enfant->nom .' '. $enfant->prenom?></option>
-                    <?php } ?>
+                        <?php foreach ($enfants as $enfant) { ?>
+                            <option value="<?= $enfant->id_enfant ?>"><?php echo $enfant->nom . ' ' . $enfant->prenom ?></option>
+                        <?php } ?>
                     </select>
 
                     <span class="input-highlight"></span>
                 </div>
             </div>
         </div>
-
+        <div class="separator"></div>
         <div class="col-md-5 mx-auto mt-5">
             <input type="submit" name="submitted" class="btn btn-lg btn-success btn-block">
         </div>
-        <?php print_r($_POST['fin_resa']) ?>
     </form>
-
+    <div class="separator"></div>
     <script>
         $('#time_start').datetimepicker({
             footer: true,
@@ -46,7 +46,7 @@
             showOtherMonths: true,
             calendarWeeks: true,
             format: 'yyyy-mm-dd H:MM',
-            value: '2020-04-04 14:30:00',
+            value: '2020-00-00 09:00',
             uiLibrary: 'bootstrap4',
             locale: 'fr-fr',
         });
@@ -55,8 +55,8 @@
             modal: true,
             showOtherMonths: true,
             calendarWeeks: true,
-            format: 'dd mmmm yyyy H:MM',
-            value: '18 avril 2020 18:30',
+            format: 'yyyy-mm-dd H:MM',
+            value: '2020-00-00 18:00',
             uiLibrary: 'bootstrap4',
             locale: 'fr-fr',
         });
