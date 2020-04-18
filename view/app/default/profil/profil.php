@@ -7,15 +7,20 @@
 <div class="container">
     <div class="row">
         <div class="col" style="text-align: center">
+            <a id="btnAjoutEnfant" href="<?= $view->path('editProfil'); ?>">Editer le profil</a>
             <h2 id="sousTitre"><?= $msg ?></h2>
-            <p>Votre nom et prénom : <?= ucfirst($session['nom']) . ' ' . ucfirst($session['prenom']) ?></p>
-            <p>Votre date de naissance : <?= $session['birthdate'] ?></p>
-            <p>Votre email : <?= $session['email'] ?></p>
-            <p>Votre numéro de téléphone
-                : <?php if (!empty($session['update'])) echo '0'; ?><?= $session['telephone'] ?></p>
-            <p>Votre adresse
-                : <?= $session['num_rue'] . ' ' . $session['supp_rue'] . ' ' . $session['nom_rue'] . ' ' . $session['codepostal'] . ' ' . $session['ville'] ?></p>
-            </br><a href="<?= $view->path('editProfil'); ?>">Editer le profil</a>
+            <p><span id="underline">Votre nom et prénom : </span> <?= ucfirst($session['nom']) . ' ' . ucfirst($session['prenom']) ?></p>
+            <p><span id="underline"> Votre date de naissance : </span> <?= $session['birthdate'] ?></p>
+            <p><span id="underline"> Votre adresse email : </span> <?= $session['email'] ?></p>
+            <p><span id="underline"> Votre numéro de téléphone
+                : </span> <?php if (empty($session['update'])) echo '0'; ?><?= $session['telephone'] ?></p>
+            <p><span id="underline"> Votre adresse postale
+                : </span> <?php
+                if ($session['supp_rue'] == 'NULL'){
+                    echo $session['num_rue'] . ' ' . $session['nom_rue'] . ' ' . $session['codepostal'] . ' ' . $session['ville'] . '</p>';
+                } else {
+                    echo $session['num_rue'] . ' ' . $session['supp_rue'] . ' ' . $session['nom_rue'] . ' ' . $session['codepostal'] . ' ' . $session['ville'] . '</p>';
+                }?>
         </div>
         <div class="col" style="text-align: center">
             <a id="btnAjoutEnfant" href="<?=$view->path('ajoutEnfant')?>">Ajouter un enfant</a>
@@ -31,12 +36,12 @@
                     } elseif ($enfant->sexe == 'fille') {
                         $bgColor = 'rgba(244, 241, 187, 0.8)';
                     }
-                    $html .= '<li id="affEnfant" style="background-color: ' . $bgColor . ';">' . $enfant->nom . ' ' . $enfant->prenom . '
+                    $html .= '<li id="affEnfant" style="background-color: ' . $bgColor . ';">' . ucfirst($enfant->nom) . ' ' . ucfirst($enfant->prenom) . '
                 <ul>
-                <li>' . $enfant->sexe . '</li>
+                <li>Sexe : ' . ucfirst($enfant->sexe) . '</li>
                 <li>Date de naissance : ' . $enfant->birthdate . '</li>
                 </ul>
-                 <a id="btnEnfant" href="' . $view->path('descrEnfant', array($enfant->id_enfant)) . '">Voir Plus</a>
+                 <a id="btnDescr" href="' . $view->path('descrEnfant', array($enfant->id_enfant)) . '">Voir Plus</a>
                 </li>';
                 }
                 $html .= '</ul>';

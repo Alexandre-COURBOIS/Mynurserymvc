@@ -1,8 +1,12 @@
 #titre {
     text-align: center;
     font-size: 33px;
-    margin-top: 100px;
-    margin-bottom: 20px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+#underline{
+    border-bottom: solid 1px; /*Plus d'espacement que text-decoration : underline;*/
 }
 
 #sousTitre {
@@ -20,13 +24,63 @@
 
 #btnEnfant {
     background-color: #e6ebe0;
+    color: black;
+    border-radius: 20px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+#btnEnfant:hover{
+    border: solid 3px #e6ebe0;
+    background-color: inherit;
+}
+
+#btnDescr{
+    background-color: #e6ebe0;
+    color: black;
+    border-radius: 20px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+#btnDescr:hover{
+    border: solid 3px #e6ebe0;
+    background-color: white;
+}
+
+#btnDelete{
+    text-decoration: none;
+    background-color: #ed6a5a;
+    color: white;
     border-radius: 20px;
     padding: 0 10px;
 }
+#btnDelete:hover{
+    border: solid 3px #ED6A5A;
+    background-color: inherit;
+    color: black;
+}
+
+#btnRetour{
+    text-decoration: none;
+    background-color: #5ca4a9;
+    color: white;
+    border-radius: 20px;
+    padding: 0 10px;
+}
+#btnRetour:hover{
+    border: solid 3px #5ca4a9;
+    background-color: inherit;
+    color: black;
+}
 
 #btnAjoutEnfant {
+    text-decoration: none;
     border-radius: 10px;
     padding: 10px;
     background-color: #5ca4a9 ;
     color: white;
+}
+#btnAjoutEnfant:hover{
+    border: solid 3px #5ca4a9;
+    background-color: inherit;
+    color: black;
 }
