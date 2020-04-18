@@ -14,6 +14,8 @@ $routes = array(
     array('map_request','map','mapRequest'),
 
     array('nurses', 'nurse', 'nurse'),
+    array('nurseall', 'nurse', 'nurseall'),
+    array('singlenurse', 'nurse', 'singlenurse', array('id')),
 
 );
 
