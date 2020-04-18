@@ -89,7 +89,7 @@ $.ajax({
                     },
                     properties: {
                         title: [users[i]['nomcreche']],
-                        description: '<p>Téléphone : ' + [users[i]['telephone']] + '</p>' + '<p>Mail : ' + users[i]['mail'] + '</p>' + '<p>' + users[i]['adresse'] + '</p>' + '<p><a href="localhost">crèche</a></p>'
+                        description: '<p>Téléphone : ' + [users[i]['telephone']] + '</p>' + '<p>Mail : ' + users[i]['mail'] + '</p>' + '<p>' + users[i]['adresse'] + '</p>' + '<p><a href="http://localhost/mynurserymvc/public/singlenurse/' + users[i]['idcreche'] + '">Cliquer pour voir plus</a></p>'
                     }
                 });
             }

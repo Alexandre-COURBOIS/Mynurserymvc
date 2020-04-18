@@ -41,6 +41,8 @@ class ProfilController extends Controller
                     $_SESSION['login']['nom_rue'] = $post['street'];
                     $_SESSION['login']['codepostal'] = $post['code-postal'];
                     $_SESSION['login']['ville'] = $post['city'];
+                    $_SESSION['login']['lgt'] = $post['longitude'];
+                    $_SESSION['login']['lat'] = $post['lattitude'];
                     $_SESSION['login']['update'] = 'modified';
                     $this->redirect('');
 
@@ -52,6 +54,8 @@ class ProfilController extends Controller
                     $_SESSION['login']['nom_rue'] = $post['street'];
                     $_SESSION['login']['codepostal'] = $post['code-postal'];
                     $_SESSION['login']['ville'] = $post['city'];
+                    $_SESSION['login']['lgt'] = $post['longitude'];
+                    $_SESSION['login']['lat'] = $post['lattitude'];
                     $_SESSION['login']['update'] = 'modified';
                     $this->redirect('');
                 }

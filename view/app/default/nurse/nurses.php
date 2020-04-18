@@ -1,4 +1,5 @@
 <div class="container">
+
     <h2><?= $titre ?></h2>
     <ul class="list-group">
         <?php
