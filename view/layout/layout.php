@@ -54,6 +54,9 @@
                                 <a href="<?= $view->path('ajoutEnfant'); ?>" class="nav-link">Vos enfants</a>
                             </li>
                             <li>
+                                <a href="<?= $view->path('nurses'); ?>" class="nav-link">Les Crèches</a>
+                            </li>
+                            <li>
                                 <a href="<?= $view->path('map'); ?>" class="nav-link">Map</a>
                             </li>
                         <?php } elseif ($_SESSION['login']['user'] == 'pro') { ?>
