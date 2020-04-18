@@ -18,6 +18,9 @@ function myFunction() {
     }
 }
 
+
+
+
 // Slider
 $(document).ready(function () {
 
@@ -25,6 +28,8 @@ $(document).ready(function () {
     var loader = document.getElementById('#loaderProfil');
 
     // End Loader
+
+    var getPwd = document.getElementById('#modifPwd');
 
     $("#demo").carousel({
         interval: 8000,
@@ -40,20 +45,25 @@ $(document).ready(function () {
         window.location = 'inscription_parent';
     });
 
+    $('#modifPwd').click(function () {
+        $('#addclass').toggle();
+    });
+
+
 });
 // Requête
 
 $.ajax({
 
     // Adresse à laquelle la requête est envoyée
-    url: '../request',
+    url: '/mynurserymvc/public/map_request',
     type: 'GET',
     // La fonction à apeller si la requête aboutie
 
     success: function (creches) {
         var users = jQuery.parseJSON(creches);
         console.log(users);
-
+        console.log(users[4]);
         map.on('load', function () {
             var geojson = {
                 type: 'FeatureCollection',
@@ -71,7 +81,6 @@ $.ajax({
             };
             var i;
             for(i=0;i<users.length;i++) {
-                console.log('oui');
                 geojson.features.push({
                     type: 'Feature',
                     geometry: {
@@ -79,8 +88,8 @@ $.ajax({
                         coordinates: [users[i]['longitude'], users[i]['latitude']]
                     },
                     properties: {
-                        title: users[i]['nom_creche'],
-                        description: '<p>Téléphone : 0' + users[i]['telephone_creche']+ '</p>' + '<p>Mail : ' + users[i]['email'] + '</p>' + '<p>' + users[i]['num_rue'] + ' ' + users[i]['nom_rue'] + '</p>' + '<p>' + users[i]['codepostal'] + ' ' + users[i]['ville'] + '</p>'
+                        title: [users[i]['nomcreche']],
+                        description: '<p>Téléphone : ' + [users[i]['telephone']] + '</p>' + '<p>Mail : ' + users[i]['mail'] + '</p>' + '<p>' + users[i]['adresse'] + '</p>' + '<p><a href="localhost">crèche</a></p>'
                     }
                 });
             }
@@ -109,60 +118,17 @@ $.ajax({
                 mapboxgl: mapboxgl
             });
 
+            var gelocalisation = new mapboxgl.GeolocateControl({positionOptions: {enableHighAccuracy: true}, trackUserLocation: true});
+
+            map.addControl(gelocalisation, 'top-right');
+
             map.addControl(geocoder, 'top-left');
 
-
-            // Listen for the `geocoder.input` event that is triggered when a user
-            // makes a selection
-            geocoder.on('result', function (ev) {
-                var styleSpec = ev.result;
-                var styleSpecBox = document.getElementById('json-response');
-                var styleSpecText = JSON.stringify(styleSpec, null, 2);
-                var syntaxStyleSpecText = syntaxHighlight(styleSpecText);
-                styleSpecBox.innerHTML = syntaxStyleSpecText;
-
-                console.log(syntaxStyleSpecText);
-
-                var location = document.getElementsByClassName('number');
-
-                /*
-                                console.log(location[3]);
-                                console.log(location[4]);*/
-
-            });
-
-            function syntaxHighlight(json) {
-                json = json
-                    .replace(/&/g, '&amp;')
-                    .replace(/</g, '&lt;')
-                    .replace(/>/g, '&gt;');
-                return json.replace(
-                    /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g,
-                    function (match) {
-                        var cls = 'number';
-                        if (/^"/.test(match)) {
-                            if (/:$/.test(match)) {
-                                cls = 'key';
-                            } else {
-                                cls = 'string';
-                            }
-                        } else if (/true|false/.test(match)) {
-                            cls = 'boolean';
-                        } else if (/null/.test(match)) {
-                            cls = 'null';
-                        }
-                        return '<span class="' + cls + '">' + match + '</span>';
-                    }
-                );
-            }
-
         });
-
     },
 // La fonction à appeler si la requête n'a pas abouti
     error: function () {
-        // J'affiche un message d'erreur
-        console.log("non")
+
     }
 
 })

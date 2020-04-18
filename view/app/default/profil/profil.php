@@ -32,10 +32,12 @@
                         $bgColor = 'rgba(244, 241, 187, 0.8)';
                     }
                     $html .= '<li id="affEnfant" style="background-color: ' . $bgColor . ';">' . $enfant->nom . ' ' . $enfant->prenom . '
+
                 <ul>
                 <li>' . $enfant->sexe . '</li>
                 <li>Date de naissance : ' . $enfant->birthdate . '</li>
                 </ul>
+
                  <a id="btnEnfant" href="' . $view->path('descrEnfant', array($enfant->id_enfant)) . '">Voir Plus</a>
                 </li>';
                 }
@@ -48,3 +50,12 @@
 </div>
 
 
+        <?php } else {
+            header('Location: http://localhost/mynursery');
+        }
+    } else {
+        header('Location: http://localhost/mynursery');
+    }
+} else {
+    header('Location: http://localhost/mynursery');
+}

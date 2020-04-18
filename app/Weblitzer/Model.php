@@ -5,6 +5,7 @@ use App\App;
 /**
  *
  */
+
 class Model
 {
     protected static $table;
