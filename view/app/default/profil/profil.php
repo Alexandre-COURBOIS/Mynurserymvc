@@ -1,3 +1,7 @@
+<?php if (!empty($_SESSION)) {
+    if (!empty($_SESSION['login'])) {
+        if ((!empty($_SESSION['login']['user']))) { ?>
+
 <h1 id="titre">
     <?= $titre;
     $session = $_SESSION['login'];
@@ -37,19 +41,31 @@
                         $bgColor = 'rgba(244, 241, 187, 0.8)';
                     }
                     $html .= '<li id="affEnfant" style="background-color: ' . $bgColor . ';">' . ucfirst($enfant->nom) . ' ' . ucfirst($enfant->prenom) . '
+
                 <ul>
                 <li>Sexe : ' . ucfirst($enfant->sexe) . '</li>
                 <li>Date de naissance : ' . $enfant->birthdate . '</li>
                 </ul>
+
                  <a id="btnDescr" href="' . $view->path('descrEnfant', array($enfant->id_enfant)) . '">Voir Plus</a>
+
                 </li>';
-                }
-                $html .= '</ul>';
-                echo $html;
-            }
-            ?>
-        </div>
-    </div>
-</div>
+                            }
+                            $html .= '</ul>';
+                            echo $html;
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
 
 
+        <?php } else {
+            header('Location: http://localhost/mynursery');
+        }
+    } else {
+        header('Location: http://localhost/mynursery');
+    }
+} else {
+    header('Location: http://localhost/mynursery');
+}

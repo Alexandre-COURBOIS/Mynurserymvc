@@ -1,1 +1,10 @@
-<p style="text-align: center;font-size: 2em;margin-bottom: 75px;">Page 404</p>
+<body id="body404">
+
+
+<h3>404 Not Found</h3>
+<p><a href="home">→ Back home ←</a></p>
+
+
+
+</body>
+<div class="clear"></div>
