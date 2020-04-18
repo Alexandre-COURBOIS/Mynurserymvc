@@ -1,14 +1,13 @@
 <div class="container">
+    <h2><?= $titre ?></h2>
     <ul class="list-group">
         <?php
-        $id = $_SESSION['login']['id'];
-        print_r($_SESSION);
         $userlat = $_SESSION['login']['lat'];
         $userlgt = $_SESSION['login']['lgt'];
         foreach ($creches as $creche) {
             $distance = (round(calculateDistance($userlat, $userlgt, $creche->latitude, $creche->longitude) / 1000,1));
             if($distance <= 30) {
-            echo '<li class="list-group-item">' . $creche->nom_creche . '</li>';
+            echo '<li class="list-group-item"><a href="'. $view->path('singlenurse', array($creche->id_creche)) .'"> ' . $creche->nom_creche . '</a></li>';
 
 
                 echo '<span>à ' . $distance . ' km de chez vous</span>';
@@ -16,6 +15,7 @@
         }
         ?>
     </ul>
+    <a href="<?php echo $view->path('nurseall') ?>">Voir toutes les crèches</a>
 
 </div>
 <?php
