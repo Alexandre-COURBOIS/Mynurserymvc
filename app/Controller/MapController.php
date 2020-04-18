@@ -26,6 +26,7 @@ class MapController extends Controller
         for ($i = 0; $i < count($crechess); $i++) {
             
                              $creches = array(
+                            'idcreche' => $crechess[$i] -> getId_Creche(),
                             'nomcreche' => $crechess[$i]->getNom_Creche(),
                             'adresse' => $crechess[$i]->getNum_Rue() . ' ' . $crechess[$i]->getNom_Rue() . ' ' . $crechess[$i]->getCodepostal() . ' ' . $crechess[$i]->getVille(),
                             'telephone' => '0' . $crechess[$i]->getTelephone(),
