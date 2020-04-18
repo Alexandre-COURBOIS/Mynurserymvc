@@ -20,6 +20,7 @@ class ReservationController extends Controller
         if (!empty($_POST['submitted'])){
 
             $creche = $_GET['id'];
+            $id = $_SESSION['login']['id'];
 
             $post = $this->cleanXss($_POST);
 
@@ -32,7 +33,7 @@ class ReservationController extends Controller
 
             if ($valid->IsValid($errors)){
 
-                ReservationModel::insert($creche,$id_enfant,$debut,$fin,$creche,$id_enfant);
+                ReservationModel::insert($creche,$id_enfant,$id,$debut,$fin,$creche,$id_enfant);
                 $this->redirect('');
             }
         }

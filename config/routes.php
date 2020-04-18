@@ -7,7 +7,6 @@ $routes = array(
 
     array('ajoutEnfant','enfant','ajoutEnfant'),
     array('editProfil','profil','edit'),
-
     array('deconnexion','profil','deconnexion'),
 
     array('reservation','reservation','reservation'),
@@ -24,6 +23,8 @@ $routes = array(
     array('nurses', 'nurse', 'nurse'),
     array('nurseall', 'nurse', 'nurseall'),
     array('singlenurse', 'nurse', 'singlenurse', array('id')),
+
+    array('agenda','agenda','AffichageReservations')
 
 );
 

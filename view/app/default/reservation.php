@@ -1,6 +1,7 @@
+<div class="separator"></div>
 <div class="container">
     <h2 class="text-center pt-4"><?= $titre; ?></h2>
-
+    <div class="separator"></div>
     <form action="" method="post" class="form-style">
         <div class="form-row">
 
@@ -23,21 +24,21 @@
                 <div class="form-group">
                     <select name="enfant_resa" id="enfant_resa" class="form-control">
                         <option value="">--Liste de vos enfants--</option>
-                    <?php foreach ($enfants as $enfant){ ?>
-                        <option value="<?= $enfant->id_enfant ?>"><?php echo $enfant->nom .' '. $enfant->prenom?></option>
-                    <?php } ?>
+                        <?php foreach ($enfants as $enfant) { ?>
+                            <option value="<?= $enfant->id_enfant ?>"><?php echo $enfant->nom . ' ' . $enfant->prenom ?></option>
+                        <?php } ?>
                     </select>
 
                     <span class="input-highlight"></span>
                 </div>
             </div>
         </div>
-
+        <div class="separator"></div>
         <div class="col-md-5 mx-auto mt-5">
             <input type="submit" name="submitted" class="btn btn-lg btn-success btn-block">
         </div>
     </form>
-
+    <div class="separator"></div>
     <script>
         $('#time_start').datetimepicker({
             footer: true,
