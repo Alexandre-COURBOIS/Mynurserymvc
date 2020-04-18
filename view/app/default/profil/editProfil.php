@@ -39,7 +39,7 @@
                                 <option value="NULL">Supplément de numéro</option>
                                 <option value="bis">Bis</option>
                                 <option value="ter">Ter</option>
-                                <option value="quater">>Quater</option>
+                                <option value="quater">Quater</option>
                             </select>
                             <span class="input-highlight"></span>
                         </div>
