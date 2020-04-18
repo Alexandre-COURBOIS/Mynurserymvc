@@ -18,7 +18,11 @@
                         <p>Votre numéro de téléphone
                             : <?php if (!empty($session['update'])) echo '0'; ?><?= $session['telephone'] ?></p>
                         <p>Votre adresse
+                            <?php if (empty($_SESSION['supp_rue'])) { ?>
+                            : <?= $session['num_rue'] . ' ' . $session['nom_rue'] . ' ' . $session['codepostal'] . ' ' . $session['ville'] ?></p>
+                        <?php } else { ?>
                             : <?= $session['num_rue'] . ' ' . $session['supp_rue'] . ' ' . $session['nom_rue'] . ' ' . $session['codepostal'] . ' ' . $session['ville'] ?></p>
+                        <?php } ?>
                         </br><a href="<?= $view->path('editProfil'); ?>">Editer le profil</a>
                     </div>
                     <div class="col" style="text-align: center">

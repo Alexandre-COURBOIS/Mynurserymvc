@@ -276,7 +276,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function get_Longitude()
+    public function getLongitude()
     {
         return $this->longitude;
     }
@@ -292,7 +292,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function get_Latitude()
+    public function getLatitude()
     {
         return $this->latitude;
     }

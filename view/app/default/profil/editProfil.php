@@ -37,9 +37,9 @@
                         <div class="form-group">
                             <select name="id-rue" id="id-rue" class="form-control">
                                 <option value="NULL">Supplément de numéro</option>
-                                <option value="bis" <?php if (($profil[0]->Supp_rue) == "bis") echo "selected";?>>Bis</option>
-                                <option value="ter" <?php if (($profil[0]->Supp_rue) == "ter") echo "selected";?>>Ter</option>
-                                <option value="quater" <?php if (($profil[0]->Supp_rue) == "quater") echo "selected";?>>Quater</option>
+                                <option value="bis">Bis</option>
+                                <option value="ter">Ter</option>
+                                <option value="quater">>Quater</option>
                             </select>
                             <span class="input-highlight"></span>
                         </div>

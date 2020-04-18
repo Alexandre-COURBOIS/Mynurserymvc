@@ -156,7 +156,12 @@ class ProfilModel extends Model
         $this->modified_at = $mofidiedAt;
     }
 
-    public static function edit($tel, $numRue, $supp_rue, $street, $codePostal, $ville, $longitude, $latitude, $id){
+    public static function edit($tel, $numRue, $street, $codePostal, $ville, $longitude, $latitude, $id){
+        $sql = "UPDATE " . self::getTable() . " SET telephone = ?, num_rue = ?, nom_rue = ?, codepostal = ?, ville = ?, longitude = ?, latitude = ?, modified_at = NOW() WHERE idresponsable_legale = ?";
+        return App::getDatabase()->prepareInsert($sql, [$tel, $numRue, $street, $codePostal, $ville, $longitude, $latitude, $id]);
+    }
+
+    public static function editSupp($tel, $numRue, $supp_rue, $street, $codePostal, $ville, $longitude, $latitude, $id){
         $sql = "UPDATE " . self::getTable() . " SET telephone = ?, num_rue = ?, supp_rue = ?, nom_rue = ?, codepostal = ?, ville = ?, longitude = ?, latitude = ?, modified_at = NOW() WHERE idresponsable_legale = ?";
         return App::getDatabase()->prepareInsert($sql, [$tel, $numRue, $supp_rue, $street, $codePostal, $ville, $longitude, $latitude, $id]);
     }
