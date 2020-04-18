@@ -83,22 +83,16 @@ class AutreResponsableLegalModel extends Model
     {
         $this->modified_at = $mofidiedAt;
     }
-    /*
-    public static function insert($id_responsablelegal, $nom, $prenom, $birthdate, $sexe)
+
+    public static function insert($id_enfant, $nom, $prenom, $role)
     {
-        $sql = "INSERT INTO " . self::getTable() . " VALUES (NULL, ?, ?, ?, ?, ?, NOW(), NULL, ?)";
-        return App::getDatabase()->prepareInsert($sql, [$id_responsablelegal, $nom, $prenom, $birthdate, $sexe, $id_responsablelegal]);
+        $sql = "INSERT INTO " . self::getTable() . " VALUES (NULL, ?, ?, ?, ?, NOW(), NULL)";
+        return App::getDatabase()->prepareInsert($sql, [$id_enfant, $nom, $prenom, $role]);
     }
 
-    public static function edit($sexe, $nom, $prenom, $birthdate, $id)
-    {
-        $sql = "UPDATE " . self::getTable() . " SET nom = ?, prenom = ?, birthdate = ?, sexe = ?, modified_at = NOW() WHERE id_enfant = ?";
-        return App::getDatabase()->prepareInsert($sql, [$sexe, $nom, $prenom, $birthdate, $id]);
-    }
-
-    public static function delete($id,$columId = 'id_enfant')
+    public static function delete($id,$columId = 'id_autre_responsable')
     {
         return App::getDatabase()->prepareInsert("DELETE FROM " . self::getTable() . " WHERE ".$columId." = ?",[$id],get_called_class(),true);
     }
-     */
+
 }

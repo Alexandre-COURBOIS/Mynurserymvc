@@ -22,8 +22,9 @@ class AutreResponsableLegalController extends Controller
         ));
     }
 
-    public function ajout()
+    public function ajout($id)
     {
+        $enfant = EnfantModel::findById($id, 'id_enfant');
         $errors = array();
         if (!empty($_POST['submitted'])){
             $post = $this->cleanXss($_POST);
@@ -32,12 +33,23 @@ class AutreResponsableLegalController extends Controller
             $errors['prenom_autreResp'] = $valid->textValid($post['prenom_autreResp'], 'son prénom', 2, 20);
             $errors['role_autreResp'] = $valid->selectValid($post['role_autreResp'], 'un rôle');
             if ($valid->IsValid($errors)){
-
+               AutreResponsableLegalModel::insert($enfant[0]->id_enfant, $post['nom_autreResp'], $post['prenom_autreResp'], $post['role_autreResp']);
+                $this->redirect('descrEnfant/'.$enfant[0]->id_enfant.'');
             }
         }
         $form = new Form($errors);
         $this->render('app.default.autreResponsable.ajoutResponsable',array(
+            'enfant'=>$enfant,
             'form' => $form,
         ));
+    }
+    public function deleteResp($idEnfant, $idResp){
+        $autreResp = AutreResponsableLegalModel::findById($idResp, 'id_autre_responsable');
+        $enfant = EnfantModel::findById($idEnfant, 'id_enfant');
+        if (empty($autreResp)){
+            $this->Abort404();
+        }
+        AutreResponsableLegalModel::delete($idResp);
+        $this->redirect('descrEnfant/'.$enfant[0]->id_enfant.'');
     }
 }
