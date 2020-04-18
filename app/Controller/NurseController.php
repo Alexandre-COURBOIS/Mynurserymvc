@@ -11,8 +11,11 @@ use App\Weblitzer\Model;
 class NurseController extends Controller
 {
     public function nurse() {
+        if(empty($_SESSION)) {
+            $this->redirect('404');
+        }
 
-        $titre = 'Liste de toutes les crèches';
+        $titre = 'Les crèches près de chez vous';
         $creches = CrecheModel::All();
 
 
@@ -20,6 +23,23 @@ class NurseController extends Controller
         $this->render('app.default.nurse.nurses',array(
             'titre' => $titre,
             'creches' => $creches,
+        ));
+    }
+
+    public function nurseall() {
+        $titre = 'Liste de toutes les crèches';
+        $creches = CrecheModel::All();
+
+        $this->render('app.default.nurse.nurseall',array(
+            'titre' => $titre,
+            'creches' => $creches,
+        ));
+    }
+
+    public function singlenurse($id) {
+        $creche = CrecheModel::findById($id, 'id_creche');
+        $this->render('app.default.nurse.singlenurse',array(
+            'creche' => $creche,
         ));
     }
 
