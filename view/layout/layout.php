@@ -69,7 +69,7 @@
                         <?php }
                     } ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">contact</a>
+                        <a class="nav-link" href="http://localhost/mynursery/contact">contact</a>
                     </li>
                 </ul>
 
