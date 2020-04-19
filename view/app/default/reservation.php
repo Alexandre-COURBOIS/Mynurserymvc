@@ -1,6 +1,7 @@
 <div class="separator"></div>
 <div class="container">
-    <h2 class="text-center pt-4"><?= $titre; ?></h2>
+    <a id="btnAllCreche" href=" <?= $view->path('nurses'); ?>" style="margin-left: 32.5%">Retour sur les crèches de proximités</a>
+    <h2 id="titre" class="text-center pt-4"><?= $titre; ?></h2>
     <div class="separator"></div>
     <form action="" method="post" class="form-style">
         <div class="form-row">
