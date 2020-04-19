@@ -5,6 +5,7 @@ namespace App\Model;
 
 
 use App\App;
+use App\Controller\NurseController;
 use App\Weblitzer\Model;
 
 
@@ -49,5 +50,9 @@ class RateModel extends Model
     public static function rateNurse($id_user, $id_creche, $note) {
         $sql = "INSERT INTO " . self::getTable() . " VALUES(NULL, ?, ?, ?)";
         return App::getDatabase()->prepareInsert($sql, [$id_user, $id_creche, $note]);
+    }
+    public static function avgRateNurse($id_creche) {
+        $sql = "SELECT AVG(note) FROM " . self::getTable() . " WHERE id_creche = $id_creche";
+        return App::getDatabase()->aggregation($sql);
     }
 }
