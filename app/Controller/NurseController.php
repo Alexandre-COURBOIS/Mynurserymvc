@@ -3,8 +3,10 @@
 
 namespace App\Controller;
 
+use App\Model\RateModel;
 use App\Weblitzer\Controller;
 use App\Model\CrecheModel;
+use App\Service\Validation;
 use App\Model\ProfilModel;
 use App\Weblitzer\Model;
 
@@ -38,6 +40,19 @@ class NurseController extends Controller
 
     public function singlenurse($id) {
         $creche = CrecheModel::findById($id, 'id_creche');
+        if (empty($creche)) {
+            $this->Abort404();
+        }
+        $errors = array();
+        if (!empty($_POST['submitted'])) {
+            $post = $this->cleanXss($_POST);
+            $valid = new Validation();
+            if ($valid->IsValid($errors)){
+                RateModel::rateNurse(1, $id, $post['rate']);
+                //$this->redirect('');
+            }
+
+        }
         $this->render('app.default.nurse.singlenurse',array(
             'creche' => $creche,
         ));
