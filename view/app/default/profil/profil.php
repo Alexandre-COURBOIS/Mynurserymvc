@@ -1,6 +1,6 @@
 <?php if (!empty($_SESSION)) {
     if (!empty($_SESSION['login'])) {
-        if ((!empty($_SESSION['login']['user']))) { ?>
+        if ($_SESSION['login']['user'] === "particulier") { ?>
 
 <h1 id="titre">
     <?= $titre;
