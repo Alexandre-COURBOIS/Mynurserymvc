@@ -40,15 +40,19 @@ class NurseController extends Controller
 
     public function singlenurse($id) {
         $creche = CrecheModel::findById($id, 'id_creche');
+        $checkUserRate = RateModel::checkRate($id);
+        $userid = $_SESSION['login']['id'];
         if (empty($creche)) {
             $this->Abort404();
         }
+
+
         $errors = array();
-        if (!empty($_POST['submitted'])) {
+        if (!empty($_POST['submitted']) && $userid != $checkUserRate && !empty($_SESSION)) {
             $post = $this->cleanXss($_POST);
             $valid = new Validation();
             if ($valid->IsValid($errors)){
-                RateModel::rateNurse(1, $id, $post['rate']);
+                RateModel::rateNurse($userid, $id, $post['rate']);
                 //$this->redirect('');
             }
         }
