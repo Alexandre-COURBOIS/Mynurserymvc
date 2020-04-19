@@ -23,6 +23,7 @@
                 <a href="<?php echo $view->path('nurseall') ?>">Voir toutes les crèches</a>
 
             </div>
+
             <?php
 
         } else {
