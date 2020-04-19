@@ -99,7 +99,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function get_Email()
+    public function getEmail()
     {
         return $this->email;
     }
@@ -180,7 +180,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function getCode_postal()
+    public function getCodepostal()
     {
         return $this->codepostal;
     }
@@ -196,7 +196,7 @@ class CrecheModel extends Model
     /**
      * @return mixed
      */
-    public function get_Ville()
+    public function getVille()
     {
         return $this->ville;
     }
@@ -368,6 +368,7 @@ class CrecheModel extends Model
     {
         $this->modified_at = $modified_at;
     }
+
 
 
 
