@@ -6,6 +6,17 @@
 <div class="container">
     <a id="btnAllCreche" href=" <?= $view->path('nurses'); ?>" style="margin-left: 32.5%">Retour sur les crèches de proximités</a>
     <h2 id="titreCreche"><?=$creche[0]->nom_creche;?></h2>
+    <h3 id="sousTitre">Notation de la crèche <?=$note;?>/5</h3>
+    <form action="" method="post" style="margin-left: 45%;">
+        <select name="rate">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <input type="submit" name="submitted" class="btn btn-success" value="Noter!">
+    </form>
     <div class="separ"></div>
     <div class="row" style="margin-left: 15%">
         <div class="col">
@@ -26,17 +37,6 @@
         <a id="btnDescr" href="http://localhost/mynurserymvc/public/reservation?id='.urlencode($creche[0]->id_creche).'">Réserver dans cette crèche</a>
     </div>
 </div>
-
-            <form action="" method="post">
-                <select name="rate">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <input type="submit" name="submitted" class="btn btn-success" value="Noter!">
-            </form>
 
         <?php } else {
             header('Location: http://localhost/mynursery');
