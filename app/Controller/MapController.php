@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Weblitzer\Controller;
 use App\Model\CrecheModel;
 use App\Weblitzer\Model;
+use App\Model\RateModel;
 
 
 class MapController extends Controller
@@ -21,6 +22,9 @@ class MapController extends Controller
 
         $crechess = CrecheModel::All();
 
+
+        $rate =  RateModel::avgRateNurse($crechess[$i] -> getId_Creche());
+
         $tab = [];
 
         for ($i = 0; $i < count($crechess); $i++) {
@@ -33,6 +37,7 @@ class MapController extends Controller
                             'mail' => $crechess[$i]->getEmail(),
                             'latitude' => $crechess[$i]->getLatitude(),
                             'longitude' => $crechess[$i]->getlongitude(),
+                            'note' =>,
                             );
 
             array_push($tab,$creches);
