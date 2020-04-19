@@ -9,7 +9,7 @@ foreach ($creches as $creche) {
             echo '</ul>';
 
 
-        } else {
+       <?php } else {
             header('Location: http://localhost/mynursery');
         }
     } else {
