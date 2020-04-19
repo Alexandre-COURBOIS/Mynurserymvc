@@ -1,9 +1,11 @@
 <?php
+use App\Model\EnfantModel;
+
 if (!empty($_SESSION)) {
     if (!empty($_SESSION['login'])) {
         if ($_SESSION['login']['user'] === "particulier") {
 
-            use App\Model\EnfantModel;
+
 
             ?>
             <div class="container">
