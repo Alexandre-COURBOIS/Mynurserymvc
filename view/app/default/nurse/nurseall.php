@@ -1,13 +1,22 @@
 <?php if (!empty($_SESSION)) {
     if (!empty($_SESSION['login'])) {
         if ($_SESSION['login']['user'] === "particulier") {
-
-            echo '<h2>' . $titre . '</h2>';
-            echo '<ul class="list-group">';
-            foreach ($creches as $creche) {
-                echo '<li class="list-group-item"><a href="' . $view->path('singlenurse', array($creche->id_creche)) . '"> ' . $creche->nom_creche . '</a></li>';
-                echo '</ul>';
-            }
+?>
+            <h2 id="titreCreche"><?=$titre?></h2>
+            <a id="btnAllCreche" href=" <?= $view->path('nurses'); ?>" style="margin-left: 39%">Retour sur les crèches de proximités</a>
+            <div class="separator"></div>
+            <?php
+            foreach ($creches as $creche) {?>
+                <div class="row" style="margin-left: 20%;">
+                    <div class="col-8">
+                        <p><span id="creche"> <?=$creche->nom_creche;?></span></p>
+                    </div>
+                    <div class="col">
+                        <a id="btnDescr" href="<?=$view->path('singlenurse', array($creche->id_creche));?>">Plus de détail</a>
+                    </div>
+                </div>
+                <div class="separ"></div>
+           <?php }
 
 
         } else {
