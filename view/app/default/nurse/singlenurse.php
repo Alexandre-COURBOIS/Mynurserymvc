@@ -1,4 +1,7 @@
 <?php
+    if (!empty($_SESSION)) {
+    if (!empty($_SESSION['login'])) {
+        if ($_SESSION['login']['user'] === "particulier") { ?>
 
 $html = '<ul class="list-group">';
 $html .= '<li class="list-group-item">' . $creche[0]->nom_creche . '</li>';
@@ -19,3 +22,14 @@ echo $html;
     </select>
     <input type="submit" name="submitted" class="btn btn-success" value="Noter!">
 </form>
+  
+          } else {
+            header('Location: http://localhost/mynursery');
+        }
+    } else {
+        header('Location: http://localhost/mynursery');
+    }
+} else {
+    header('Location: http://localhost/mynursery');
+}
+

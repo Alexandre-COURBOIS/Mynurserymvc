@@ -4,8 +4,9 @@
 
             <div class="container">
                 <form method="post" class="form-style" autocomplete="off">
-                    <h2 class="text-center pt-4">Ajout enfant </h2>
-                    <h3 class="text-center pt-4"><?= $titre; ?></h3>
+                    <h2 class="text-center pt-4">Modification des données de votre enfant</h2>
+
+                    <h3 class="text-center pt-4"><?= $enfant[0]->nom . ' ' . $enfant[0]->prenom; ?></h3>
                     <div class="form-row">
                         <div class="col-md-6 mx-auto mt-3">
                             <?= $form->error('sexe'); ?>
@@ -13,23 +14,33 @@
                                 <div class="col-md-2 mx-auto mt-3">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="sexe" id="garçon"
-                                               value="garçon" <?php if (!empty($_POST['sexe']) && $_POST['sexe'] == 'garçon') echo "checked"; ?>>
+                                               value="garçon" <?php if (!empty($_POST['sexe']) && $_POST['sexe'] == 'garçon') {
+                                            echo "checked";
+                                        } elseif (($enfant[0]->sexe) == 'garçon') {
+                                            echo "checked";
+                                        } ?>>
                                         <label class="form-check-label" for="garçon">Garçon</label>
                                     </div>
                                 </div>
                                 <div class="col-md-3 mx-auto mt-3">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="sexe" id="autre"
-                                               value="non-genré" <?php if (empty($_POST['sexe'])) {
-                                            echo 'checked';
-                                        } elseif (!empty($_POST['sexe']) && $_POST['sexe'] == 'non-genré') echo "checked"; ?>>
+                                               value="non-genré" <?php if (!empty($_POST['sexe']) && $_POST['sexe'] == 'non-genré') {
+                                            echo "checked";
+                                        } elseif (($enfant[0]->sexe) == 'non-genré') {
+                                            echo "checked";
+                                        } ?>>
                                         <label class="form-check-label" for="autre">Non genré</label>
                                     </div>
                                 </div>
                                 <div class="col-md-2 mx-auto mt-3">
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="sexe" id="fille"
-                                               value="fille" <?php if (!empty($_POST['sexe']) && $_POST['sexe'] == 'fille') echo "checked"; ?>>
+                                               value="fille" <?php if (!empty($_POST['sexe']) && $_POST['sexe'] == 'fille') {
+                                            echo "checked";
+                                        } elseif (($enfant[0]->sexe) == 'fille') {
+                                            echo "checked";
+                                        } ?>>
                                         <label class="form-check-label" for="fille">Fille</label>
                                     </div>
                                 </div>
@@ -40,7 +51,11 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="nom_enfant" id="nom_enfant"
                                                placeholder="Nom de l'enfant"
-                                               value="<?php if (!empty($_POST['nom_enfant'])) echo $_POST['nom_enfant']; ?>">
+                                               value="<?php if (!empty($_POST['nom_enfant'])) {
+                                                   echo $_POST['nom_enfant'];
+                                               } else {
+                                                   echo $enfant[0]->nom;
+                                               } ?>">
                                         <span class="input-highlight"></span>
                                         <?= $form->error('nom_enfant') ?>
                                     </div>
@@ -49,7 +64,11 @@
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="prenom_enfant" id="prenom_enfant"
                                                placeholder="Prénom de l'enfant"
-                                               value="<?php if (!empty($_POST['prenom_enfant'])) echo $_POST['prenom_enfant']; ?>">
+                                               value="<?php if (!empty($_POST['prenom_enfant'])) {
+                                                   echo $_POST['prenom_enfant'];
+                                               } else {
+                                                   echo $enfant[0]->prenom;
+                                               } ?>">
                                         <span class="input-highlight"></span>
                                         <?= $form->error('prenom_enfant') ?>
                                     </div>
@@ -60,7 +79,11 @@
                                     <div class="form-group">
                                         <input class="form-control" name="birthdate" id="birthdate"
                                                placeholder="Date de naissance : jj/mm/aaaa"
-                                               value="<?php if (!empty($_POST['birthdate'])) echo $_POST['birthdate']; ?>">
+                                               value="<?php if (!empty($_POST['birthdate'])) {
+                                                   echo $_POST['birthdate'];
+                                               } else {
+                                                   echo $enfant[0]->birthdate;
+                                               } ?>">
                                         <span class="input-highlight"></span>
                                         <?= $form->error('birthdate') ?>
                                     </div>
@@ -99,3 +122,4 @@
 } else {
     header('Location: http://localhost/mynursery');
 }
+

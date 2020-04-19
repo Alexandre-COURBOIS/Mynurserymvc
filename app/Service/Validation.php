@@ -111,5 +111,13 @@ class Validation
         return $error;
     }
 
+    public function selectValid($name, $msgError){
+        $error = '';
+        if (empty($name)){
+            $error = 'Veuillez séléctionner ' . $msgError;
+        }
+        return$error;
+    }
+
 
 }

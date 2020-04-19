@@ -26,12 +26,13 @@ class MapController extends Controller
         for ($i = 0; $i < count($crechess); $i++) {
             
                              $creches = array(
+                            'idcreche' => $crechess[$i] -> getId_Creche(),
                             'nomcreche' => $crechess[$i]->getNom_Creche(),
-                            'adresse' => $crechess[$i]->getNum_Rue() . ' ' . $crechess[$i]->getNom_Rue() . ' ' . $crechess[$i]->getCode_Postal() . ' ' . $crechess[$i]->get_Ville(),
+                            'adresse' => $crechess[$i]->getNum_Rue() . ' ' . $crechess[$i]->getNom_Rue() . ' ' . $crechess[$i]->getCodepostal() . ' ' . $crechess[$i]->getVille(),
                             'telephone' => '0' . $crechess[$i]->getTelephone(),
-                            'mail' => $crechess[$i]->get_Email(),
-                            'latitude' => $crechess[$i]->get_Latitude(),
-                            'longitude' => $crechess[$i]->get_longitude(),
+                            'mail' => $crechess[$i]->getEmail(),
+                            'latitude' => $crechess[$i]->getLatitude(),
+                            'longitude' => $crechess[$i]->getlongitude(),
                             );
 
             array_push($tab,$creches);

@@ -24,6 +24,7 @@
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
     <script src="https://unpkg.com/gijgo@1.9.13/js/messages/messages.fr-fr.js" type="text/javascript"></script>
+
 </head>
 <body>
 
@@ -52,6 +53,12 @@
                             </li>
                             <li>
                                 <a href="<?= $view->path('ajoutEnfant'); ?>" class="nav-link">Vos enfants</a>
+                            </li>
+                            <li>
+                                <a href="<?= $view->path('nurses'); ?>" class="nav-link">Les Crèches</a>
+                            </li>
+                            <li>
+                                <a href="<?= $view->path('agenda'); ?>" class="nav-link">Agenda</a>
                             </li>
                             <li>
                                 <a href="<?= $view->path('map'); ?>" class="nav-link">Map</a>
