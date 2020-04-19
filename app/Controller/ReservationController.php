@@ -20,6 +20,7 @@ class ReservationController extends Controller
         $liste_enfants = EnfantModel::findById($_SESSION['login']['id'], 'id_responsablelegal');
         $creche_id = CrecheModel::findById($creche,'id_creche');
 
+
         $errors = array();
 
         if (!empty($_POST['submitted'])){
@@ -35,6 +36,7 @@ class ReservationController extends Controller
             $fin = $post['fin_resa'];
             $id_enfant = $post['enfant_resa'];
 
+            $enf = EnfantModel::findById($id_enfant, 'id_enfant');
 
             if($id_enfant == "none") {
                 $errors['select'] = "Merci de renseigner un de vos enfants";
@@ -52,7 +54,7 @@ class ReservationController extends Controller
                 Bonjour, ".$genre.' '.$nom."
            
                 Nous vous confirmons votre réservation auprès de la crèche, ".$creche_id[0]->getnom_Creche()."
-                Pour votre enfant : ".$liste_enfants[0]->getnom().' '.$liste_enfants[0]->getPrenom()."
+                Pour votre enfant : ".$enf[0]->getnom().' '.$enf[0]->getPrenom()."
                 Du : ".$debut." au ".$fin."
                 
                 Cette réservation est désormais visible depuis votre agenda.
