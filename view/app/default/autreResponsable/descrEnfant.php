@@ -38,10 +38,23 @@ if (!empty($_SESSION)) {
                 de <?= ucfirst($enfant[0]->prenom) ?></h2>
             <?php
             echo '<div style="text-align: center"><a id="btnEnfant" href="' . $view->path('ajoutResponsable', array($enfant[0]->id_enfant)) . '">Ajouter une personne responsable</a></div>'; ?>
-            <ul>
-                <li><p><span id="underline">Responsable légal
-                :</span> <?= ucfirst($_SESSION['login']['nom']) . ' ' . ucfirst($_SESSION['login']['prenom']) ?></p>
-                </li>
+            <div class="table-responsive">
+            <table class="table table-striped" style="width: 80%; margin: 20px 10%;">
+                <thead>
+                <tr class="table-info">
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Rôle</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row"><?= ucfirst($_SESSION['login']['nom']); ?></th>
+                    <td><?= ucfirst($_SESSION['login']['prenom']); ?></td>
+                    <td>Responsable légal</td>
+                    <td></td>
+                </tr>
                 <?php
                 if (!empty($autreResp)) {
                     foreach ($autreResp as $autreRes) {
@@ -61,13 +74,23 @@ if (!empty($_SESSION)) {
                             $role = 'Tante';
                         } elseif ($autreRes->role_autre_respons == 'ami') {
                             $role = 'Ami de la famille';
-                        }
-                        echo '<li><p><span id="underline">' . $role . ' :</span> ' . $autreRes->nom_autre_respons . ' ' . $autreRes->prenom_autre_respons . '
-              <a id="btnDelete" href="' . $view->path('deleteResponsable', array($enfant[0]->id_enfant, $autreRes->id_autre_responsable)) . '">Supprimer ce responsable</a></p></li>';
+                        } ?>
+                        <tr>
+                        <th scope="row"><?= ucfirst($autreRes->nom_autre_respons); ?></th>
+                        <td><?= ucfirst($autreRes->prenom_autre_respons); ?></td>
+                        <td><?= ucfirst($role); ?></td>
+                        <td><a id="btnDelete"
+                               href="<?= $view->path('deleteResponsable', array($enfant[0]->id_enfant, $autreRes->id_autre_responsable)) ?>">Supprimer
+                                ce responsable</a></td>
+                        </tr>
+                    <?php
                     }
-                } ?>
-            </ul>
-            <div id="sousTitre"><a id="btnRetour" href="<?= $view->path('') ?>">Revenir sur votre profil</a></div>
+                }
+                ?> </tbody>
+            </table>
+            </div>
+            <div id="sousTitre"><a id="btnRetour" href="<?= $view->path('') ?>">Revenir sur votre profil</a>
+            </div>
 
         <?php } else {
             header('Location: http://localhost/mynursery');
