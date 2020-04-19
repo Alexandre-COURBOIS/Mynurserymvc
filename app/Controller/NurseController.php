@@ -51,10 +51,11 @@ class NurseController extends Controller
                 RateModel::rateNurse(1, $id, $post['rate']);
                 //$this->redirect('');
             }
-
         }
+        $note = RateModel::avgRateNurse($id);
         $this->render('app.default.nurse.singlenurse',array(
             'creche' => $creche,
+            'note' => $note,
         ));
     }
 
