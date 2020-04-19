@@ -1,3 +1,8 @@
+<?php if (!empty($_SESSION)) {
+    if (!empty($_SESSION['login'])) {
+        if ($_SESSION['login']['user'] === "particulier") { ?>
+
+
 <div class="container">
     <a id="btnAllCreche" href=" <?= $view->path('nurses'); ?>" style="margin-left: 32.5%">Retour sur les crèches de proximités</a>
     <h2 id="titreCreche"><?=$creche[0]->nom_creche;?></h2>
@@ -22,14 +27,23 @@
     </div>
 </div>
 
+            <form action="" method="post">
+                <select name="rate">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <input type="submit" name="submitted" class="btn btn-success" value="Noter!">
+            </form>
 
-
-<?php
-/*$html = '<ul class="list-group">';
-$html .= '<li class="list-group-item">' . $creche[0]->nom_creche . '</li>';
-$html .= '<li class="list-group-item">' . $creche[0]->nom_gerant . ' ' . $creche[0]->prenom_gerant . '</li>';
-$html .= '<li class="list-group-item">' . $creche[0]->email . '</li>';
-$html .= '<li class="list-group-item">' . $creche[0]->telephone . '</li>';
-$html .= '<li class="list-group-item">' . $creche[0]->num_rue . ' ' . $creche[0]->nom_rue . ' ' . $creche[0]->codepostal . ' ' . $creche[0]->ville . '</li>';
-$html .= '<a href="http://localhost/mynurserymvc/public/reservation?id='.urlencode($creche[0]->id_creche).'">Réserver dans cette crèche</a>';
-echo $html;*/
+        <?php } else {
+            header('Location: http://localhost/mynursery');
+        }
+    } else {
+        header('Location: http://localhost/mynursery');
+    }
+} else {
+    header('Location: http://localhost/mynursery');
+}

@@ -24,11 +24,12 @@
                 <label name="enfant_resa" for="enfant_resa" class="form-control">Enfant(s)</label>
                 <div class="form-group">
                     <select name="enfant_resa" id="enfant_resa" class="form-control">
-                        <option value="">--Liste de vos enfants--</option>
+                        <option value="none">--Liste de vos enfants--</option>
                         <?php foreach ($enfants as $enfant) { ?>
                             <option value="<?= $enfant->id_enfant ?>"><?php echo $enfant->nom . ' ' . $enfant->prenom ?></option>
                         <?php } ?>
                     </select>
+                    <?= $form->error('select') ?>
 
                     <span class="input-highlight"></span>
                 </div>

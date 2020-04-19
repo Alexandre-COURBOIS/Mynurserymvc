@@ -1,4 +1,7 @@
-<div class="container">
+<?php if (!empty($_SESSION)) {
+    if (!empty($_SESSION['login'])) {
+        if ($_SESSION['login']['user'] === "particulier") { ?>
+
 
     <h2 id="titreCreche"><?= $titre ?></h2>
     <a id="btnAllCreche" href="<?php echo $view->path('nurseall') ?>">Voir toutes les crèches</a>
@@ -23,7 +26,19 @@
         ?>
 
 </div>
+
 <?php
+       } else {
+            header('Location: http://localhost/mynursery');
+        }
+    } else {
+        header('Location: http://localhost/mynursery');
+    }
+} else {
+    header('Location: http://localhost/mynursery');
+}
+
+
 function calculateDistance($lat1, $lng1, $lat2, $lng2, $miles = false)
 {
     $earth_radius = 6378137;   // Terre = sphère de 6378km de rayon
