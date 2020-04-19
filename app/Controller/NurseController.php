@@ -56,7 +56,7 @@ class NurseController extends Controller
                 //$this->redirect('');
             }
         }
-        $note = RateModel::avgRateNurse($id);
+        $note = round(RateModel::avgRateNurse($id),2);
         $this->render('app.default.nurse.singlenurse',array(
             'creche' => $creche,
             'note' => $note,
