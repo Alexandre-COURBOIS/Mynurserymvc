@@ -55,4 +55,8 @@ class RateModel extends Model
         $sql = "SELECT AVG(note) FROM " . self::getTable() . " WHERE id_creche = $id_creche";
         return App::getDatabase()->aggregation($sql);
     }
+    public static function checkRate($id_creche) {
+        $sql = "SELECT id_user FROM " . self::getTable() . " WHERE id_creche = $id_creche";
+        return App::getDatabase()->aggregation($sql);
+    }
 }
