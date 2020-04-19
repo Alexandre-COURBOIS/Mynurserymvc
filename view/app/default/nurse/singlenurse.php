@@ -23,7 +23,7 @@
     </div>
     <div class="separ" ></div>
     <div class="row" style="margin-left: 40%">
-        <a id="btnDescr" href="http://localhost/mynurserymvc/public/reservation?id='.urlencode($creche[0]->id_creche).'">Réserver dans cette crèche</a>
+        <a id="btnDescr" href="http://localhost/mynurserymvc/public/reservation?id=<?= urlencode($creche[0]->id_creche)?>">Réserver dans cette crèche</a>
     </div>
 </div>
 

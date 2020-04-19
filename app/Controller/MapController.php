@@ -22,9 +22,6 @@ class MapController extends Controller
 
         $crechess = CrecheModel::All();
 
-
-        $rate =  RateModel::avgRateNurse($crechess[$i] -> getId_Creche());
-
         $tab = [];
 
         for ($i = 0; $i < count($crechess); $i++) {

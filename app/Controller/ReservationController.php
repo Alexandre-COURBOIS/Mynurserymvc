@@ -49,7 +49,7 @@ class ReservationController extends Controller
                 ReservationModel::insert($creche,$id_enfant,$id,$debut,$fin,$creche,$id_enfant);
 
                 $to_email = $email;
-                $subject = "Bienvenue sur MyNursery";
+                $subject = "Confirmation de réservation";
                 $body = "
                 Bonjour, ".$genre.' '.$nom."
            
