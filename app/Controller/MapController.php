@@ -37,7 +37,6 @@ class MapController extends Controller
                             'mail' => $crechess[$i]->getEmail(),
                             'latitude' => $crechess[$i]->getLatitude(),
                             'longitude' => $crechess[$i]->getlongitude(),
-                            'note' =>,
                             );
 
             array_push($tab,$creches);
