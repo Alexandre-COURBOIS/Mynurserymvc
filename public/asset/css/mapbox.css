@@ -1,0 +1,23 @@
+.container_map {
+    max-width: 1570px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.marker {
+    background-image: url('../img/mapbox-pointeur30.png');
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
